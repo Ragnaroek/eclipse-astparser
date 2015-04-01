@@ -18,7 +18,7 @@ import de.defmacro.ast.syntax.SyntaxException;
 import static de.defmacro.ast.search.ExpressionFactory.*;
 
 //TODO is(...) - Suche auch fuer anonyme und innere Klassen
-//TODO is(...) - Statement-Verknüpfung mit or, not, and Operator
+//TODO is(...) - Statement-VerknÃ¼pfung mit or, not, and Operator
 
 public class SearchIn
 implements ICompilationUnitSyntax, ISearchSyntax

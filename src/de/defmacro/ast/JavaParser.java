@@ -31,10 +31,10 @@ public class JavaParser
 	 */
 	public JavaParser()
 	{
-		this(AST.JLS4);
+		this(AST.JLS8);
         @SuppressWarnings( "unchecked" )
         Map<String, String> options = JavaCore.getOptions();
-        JavaCore.setComplianceOptions( JavaCore.VERSION_1_6, options );
+        JavaCore.setComplianceOptions( JavaCore.VERSION_1_8, options );
         fParser.setCompilerOptions( options );
 	}
 	
@@ -67,15 +67,16 @@ public class JavaParser
 	private String readContentFromFile(final File file)
 	throws IOException
 	{
-		final BufferedReader br = new BufferedReader(new FileReader(file));
-		final StringBuilder s = new StringBuilder();
-		//Zeile fuer Zeile lesen (newline anhaengen, wird von Parser benoetigt)
-		//und in String konvertieren
-		String line = null;
-		while((line = br.readLine()) != null) {
-			s.append(line);
-			s.append(NL);
+		try( BufferedReader br = new BufferedReader(new FileReader(file))) {
+			final StringBuilder s = new StringBuilder();
+			//Zeile fuer Zeile lesen (newline anhaengen, wird von Parser benoetigt)
+			//und in String konvertieren
+			String line = null;
+			while((line = br.readLine()) != null) {
+				s.append(line);
+				s.append(NL);
+			}
+			return s.toString();
 		}
-		return s.toString();
 	}
 }

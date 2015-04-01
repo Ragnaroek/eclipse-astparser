@@ -1,0 +1,47 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+	}
+}
+
+plugins {
+	id "com.github.ethankhall.semantic-versioning" version "1.1.0"
+}
+
+apply plugin: 'java'
+apply plugin: 'eu.appsatori.fatjar'
+apply plugin: 'eclipse'
+
+project.version.with { major = 8; minor = 0; patch = 0; releaseBuild = true}
+
+sourceCompatibility = 1.8
+
+sourceSets {
+   main {
+       java {
+          srcDir 'src'
+       }
+   }
+   test {
+       java {
+          srcDir 'test'
+       }
+   }
+}
+
+dependencies {
+	compile fileTree( dir: 'lib/', include: '*.jar' )
+	testCompile fileTree( dir: 'lib/test', include: '*.jar' )
+}
+
+test {
+  useJUnit()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
