@@ -45,3 +45,8 @@ test {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }
+
+fatJarPrepareFiles {
+	exclude 'META-INF/ECLIPSE_.SF'
+	exclude 'META-INF/ECLIPSE_.RSA'
+}
