@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Ragnaroek/eclipse-astparser.svg?branch=master)](https://travis-ci.org/Ragnaroek/eclipse-astparser)
+
 # eclipse-astparser
 Eclipse Standalone AST-Parser
 
